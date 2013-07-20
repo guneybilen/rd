@@ -1,0 +1,17 @@
+<!--  say_span StaticPagesHelper'da defined
+ ama burda call edebiliyorsun ve problemsiz
+ calisiyor.
+-->
+
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= image_tag "rails", :class =>"gravatar"%>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+
