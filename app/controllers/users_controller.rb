@@ -1,6 +1,17 @@
 class UsersController < ApplicationController
 
   def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(params[:user])    # Not the final implementation!
+    if @user.save
+      flash[:success] = "Welcome to the ReferansData!"
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   def show
