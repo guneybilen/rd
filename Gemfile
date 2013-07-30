@@ -25,6 +25,10 @@ group :test do
   gem 'win32console', '1.3.0'
   gem 'wdm'
   gem 'factory_girl_rails', '1.4.0'
+  gem 'cucumber-rails', '1.2.1', :require => false
+  # :require => false for anything that you need
+  # to run from the command line but don't need within your code.
+  gem 'database_cleaner', '0.7.0'
 end
 
 group :production do

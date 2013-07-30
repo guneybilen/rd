@@ -45,7 +45,18 @@ describe "User pages" do
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
+
+      describe "after saving the user" do
+        it { should have_selector('a', content: 'Sign out') }
+      end
+
+      describe "followed by signout" do
+        # before { click_link "Sign out" } - this is not working...
+        before { find("a",  content: "Sign out").click }
+        it {should have_selector('a', content: "Sign in")}
+      end
     end
+
   end
 
 end
