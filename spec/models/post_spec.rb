@@ -30,6 +30,16 @@ describe Post do
      it { should_not be_valid }
    end
 
+  describe 'with blank content' do
+    before { @post.content = ' '}
+    it { should_not be_valid }
+  end
+
+  describe 'with content that is too long' do
+    before { @post.content = 'a' * 5001}
+    it { should_not be_valid }
+  end
+
   describe 'accessible attributes' do
     it 'should not allow access to user_id' do
       expect do

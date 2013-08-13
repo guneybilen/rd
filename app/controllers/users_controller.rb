@@ -18,13 +18,6 @@ class UsersController < ApplicationController
     redirect_to root_path unless current_user? @user
   end
 
-  def signed_in_user
-     unless signed_in?
-      store_location
-      redirect_to signin_path, notice: "Please sign in" unless signed_in?
-    end
-  end
-
   def update
     # @user = User.find(params[:id])
     # correct_user before filter took care of: @user = User.find(params[:id])
@@ -59,6 +52,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page])
   end
 
   private

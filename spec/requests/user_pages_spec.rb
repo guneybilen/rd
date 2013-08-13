@@ -149,6 +149,23 @@ describe "User pages" do
       specify { expect(user.reload.name).to eq new_name }
       specify { expect(user.reload.email).to eq new_email }
     end
+  end
 
+  describe 'profile page' do
+
+    let(:user) { FactoryGirl.create(:user) }
+    let!(:m1) { FactoryGirl.create(:post, user: user, content: 'Foo') }
+    let!(:m2) { FactoryGirl.create(:post, user: user, content: 'Bar') }
+
+    before { visit user_path(user) }
+
+    it { should have_selector('h1', text: user.name) }
+    it { should have_selector('title', text: user.name) }
+
+    describe 'posts' do
+      it { should have_content(m1.content) }
+      it { should have_content(m2.content) }
+      it { should have_content(user.posts.count) }
+    end
   end
 end
