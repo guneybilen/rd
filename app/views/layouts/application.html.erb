@@ -7,25 +7,26 @@
   <%= javascript_include_tag "http://code.jquery.com/jquery-migrate-1.2.1.js" %>
   <%= csrf_meta_tags %>
     <%= render :partial => 'layouts/shim' %>
-  <meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+  <!-- <meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport"> -->
   </head>
   <body>
-    <div data-role='page'>
-      <header data-role='header'>
+    <!-- div data-role='page' >
+      <header data-role='header' -->
         <%= render :partial => 'layouts/header' %>
-      </header>
-          <div class="container">
+      <!-- /header-->
+           <div class="container" >
             <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %>"><%= value %></div>
+            <div class="alert alert-<%= key %>"><%= value %>
+            </div>
             <% end %>
-            <section data-role='content'>
+            <!-- section data-role='content' -->
               <%= yield %>
-            </section>
-            <footer data-role='footer'>
+            <!-- /section -->
+            <!--<footer data-role='footer'>-->
               <%= render :partial => 'layouts/footer' %>
-            </footer>
+            <!--</footer>-->
             <%= debug(params) if Rails.env.development? %>
             </div>
-        </div>
+     <!-- /div -->
   </body>
 </html>
