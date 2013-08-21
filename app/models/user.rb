@@ -37,7 +37,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   def feed
-    Post.where("user_id = ?", id)  # this line is equivalent to just posts
+    Post.from_users_followed_by(self)
+    #Post.where("user_id = ?", id)  # this line is equivalent to just posts
   end
 
   def following?(other_user)

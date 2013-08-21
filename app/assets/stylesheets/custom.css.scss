@@ -246,7 +246,8 @@ input {
 
 .posts {
   list-style: none;
-  margin: 10px 0 0 0;
+  margin: 0 0 0 0;
+  margin-left: 50px;
 
   li {
     padding: 10px 0;
@@ -265,6 +266,7 @@ input {
 }
 aside {
   textarea {
+    margin-top: 30px;
     height: 100px;
     margin-bottom: 5px;
   }
