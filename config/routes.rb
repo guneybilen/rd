@@ -6,13 +6,15 @@ Rd::Application.routes.draw do
     end
   end
 
-  root to: 'static_pages#home'
+  root to: 'static_pages#posts'
 
   match '/help', to: 'static_pages#help'
 
   match '/about', to: 'static_pages#about'
 
   match '/contact', to: 'static_pages#contact'
+
+  match '/home', to: 'static_pages#home'
 
   resources :sessions, only: [:new, :create, :destroy]
 

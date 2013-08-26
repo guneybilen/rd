@@ -17,33 +17,7 @@
       </div>
     </div>
 <% else %>
-    <div class='row'>
-      <aside class="span4">
-        <section>
-          <%= form_tag(signin_path, method: :get) do |f| %>
-              <div class='field'>
-                <%= text_area_tag(:content,(), {placeholder: "Sign in to compose a new post...", disabled: true}) %>
-              </div>
-              <%= submit_tag 'Post', class: 'btn btn-large btn-primary' %>
-          <% end %>
-        </section>
-      </aside>
-      <div class="span8">
-        <ol class="posts">
-        <h3>Post Feed</h3>
-          <% @feed_items.each do |feed_item| %>
-              <li id="<%= feed_item.id %>">
-        <span class="user">
-            <%= link_to feed_item.user.name, feed_item.user %>
-        </span>
-                <span class="content"><%= feed_item.content %></span>
-        <span class="timestamp">
-            Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
-        </span>
-              </li>
-          <% end %>
-        </ol>
-        <%= will_paginate @feed_items %>
-      </div>
-    </div>
+    <script type="text/javascript">
+      window.location.href='/signin'
+    </script>
 <% end %>
