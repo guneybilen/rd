@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+
+$( document ).ready(function() {
+    $(".comment_form_link").on('click', function(e){
+      var link = $(this).attr("id");
+      $(".comment_form:eq(" + link + ")").toggle();
+      $(".comment_form:gt(" + link + ")").css("display", "none");     // two forms of css parameters
+      $(".comment_form:lt(" + link + ")").css({"display" : "none"});  // taken from jQuery docs
+
+      e.preventDefault();
+    });
+});
