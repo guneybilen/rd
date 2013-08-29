@@ -6,8 +6,6 @@ Rd::Application.routes.draw do
   #  end
   #end
 
-  resources :comments
-
   resources :users do
     member do
       get :following, :followers
@@ -30,9 +28,11 @@ Rd::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  resources :post, only: [:create, :destroy]
+  resources :posts, only: [:create, :destroy]
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :comments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -25,4 +25,6 @@ $( document ).ready(function() {
 
       e.preventDefault();
     });
+
+    $('.text_area_in_comment_form').html('');
 });

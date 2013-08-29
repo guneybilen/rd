@@ -21,6 +21,7 @@ class StaticPagesController < ApplicationController
   def posts
     @post = current_user.posts.build if signed_in?
     @feed_items = Post.paginate(page: params[:page])
+
   end
 
 end
