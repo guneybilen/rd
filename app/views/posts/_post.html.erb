@@ -8,4 +8,11 @@
                                 confirm: "You sure?",
                                 title: post.content %>
   <% end %>
+   <%= form_for(comments_path(post), html: {class: "comment_form", id: "#{i}"}) do |f|%>
+                    <%= render 'shared/error_messages', object: f.object %>
+                    <div class='field'>
+                        <%= f.text_area :content, placeholder: "Compose new post...", class: "text_area_in_comment_form" %>
+                    </div>
+                    <%= f.submit 'Post', class: 'btn btn-large btn-primary' %>
+                <% end %>
 </li>

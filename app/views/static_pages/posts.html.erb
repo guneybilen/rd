@@ -38,13 +38,8 @@
         </span>
                 <br />
                 <%= link_to "Reply", "#", class: "comment_form_link", id: "#{i}" %>
-                <%= form_for(@post, html: {class: "comment_form", id: "#{i}"}) do |f|%>
-                    <%= render 'shared/error_messages', object: f.object %>
-                    <div class='field'>
-                        <%= f.text_area :content, placeholder: "Compose new post...", class: "text_area_in_comment_form" %>
-                    </div>
-                    <%= f.submit 'Post', class: 'btn btn-large btn-primary' %>
-                <% end %>
+
+               <!-- form here-->
               </li>
           <% i += 1 %>
           <% end %>
