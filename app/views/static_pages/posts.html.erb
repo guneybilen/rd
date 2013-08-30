@@ -36,18 +36,7 @@
         <span class="timestamp">
             Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
         </span>
-                <br />
-                 <%= link_to "Reply", "#", class: "comment_form_link", id: "#{i}" %>
-                 <%= form_for(feed_item, url: {controller: :comments, action: :create}, :method => :post, html: {class: "comment_form", id: "#{i}"}) do |f| %>
-                    <!-- render 'shared/error_messages', object: f.object -->
-                    <%= hidden_field_tag 'feed_item_id', feed_item.id %>
-                    <div class='field'>
-                      <%= text_area_tag :comment, nil, {placeholder: "Compose a new comment...", class: "text_area_in_comment_form"} %>
-                    </div>
-                    <%= f.submit 'Comment', class: 'btn btn-large btn-primary' %>
-                <% end %>
-
-               <!-- form here-->
+              <%= render 'shared/comments.html.erb',  hash: @hash, i: i, feed_item: feed_item %>
               </li>
           <% i += 1 %>
           <% end %>

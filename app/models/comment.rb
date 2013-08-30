@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :comment, :failure, :post_id, :success
+  attr_accessible :comment, :failure, :success
 
   belongs_to :post
 

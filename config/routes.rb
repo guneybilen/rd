@@ -32,9 +32,7 @@ Rd::Application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  post '/comments(/:comment)', to: "comments#create"
-
-  #resources :comments
+  resources :comments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

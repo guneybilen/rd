@@ -17,7 +17,7 @@
 
 
 $( document ).ready(function() {
-    $(".comment_form_link").on('click', function(e){
+    $(".comment_form_reply_link").on('click', function(e){
       var link = $(this).attr("id");
       $(".comment_form:eq(" + link + ")").toggle();
       $(".comment_form:gt(" + link + ")").css("display", "none");     // two forms of css parameters
