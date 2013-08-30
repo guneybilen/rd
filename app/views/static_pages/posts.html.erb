@@ -42,7 +42,7 @@
                     <!-- render 'shared/error_messages', object: f.object -->
                     <%= hidden_field_tag 'feed_item_id', feed_item.id %>
                     <div class='field'>
-                        <%= f.text_area :content, placeholder: "Compose a new comment...", class: "text_area_in_comment_form" %>
+                      <%= text_area_tag :comment, nil, {placeholder: "Compose a new comment...", class: "text_area_in_comment_form"} %>
                     </div>
                     <%= f.submit 'Comment', class: 'btn btn-large btn-primary' %>
                 <% end %>
