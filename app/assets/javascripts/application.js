@@ -19,7 +19,10 @@
 $( document ).ready(function() {
     $(".comment_form_reply_link").on('click', function(e){
       var link = $(this).attr("id");
-      $(".comment_form:eq(" + link + ")").toggle();
+        var text_box = $(this).next('.comment_form');
+      $(".comment_form:eq(" + link + ")").toggle().scrollTo(text_box);
+//        alert($(text_box).attr('id'));
+//      $('body');
       $(".comment_form:gt(" + link + ")").css("display", "none");     // two forms of css parameters
       $(".comment_form:lt(" + link + ")").css({"display" : "none"});  // taken from jQuery docs
 
