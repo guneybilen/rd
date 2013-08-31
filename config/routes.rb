@@ -1,5 +1,11 @@
 Rd::Application.routes.draw do
 
+  #do
+  #  member do
+  #    post :comments, :only => [:create, :destroy]
+  #  end
+  #end
+
   resources :users do
     member do
       get :following, :followers
@@ -25,6 +31,8 @@ Rd::Application.routes.draw do
   resources :posts, only: [:create, :destroy]
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :comments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

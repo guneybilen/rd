@@ -1,3 +1,4 @@
+
 <li id="<%= feed_item.id %>">
   <!-- a href="<%= user_path(current_user) %>" style="float: left; margin-right: 10px">
      < image_tag 'rails.png'  >
@@ -14,5 +15,8 @@
                                      confirm: "You sure?",
                                      title: feed_item.content %>
   <% end %>
+  <%= i %>
+  <%= render 'shared/comments.html.erb',  hash: @hash, i: i, feed_item: feed_item %>
 </li>
+
 

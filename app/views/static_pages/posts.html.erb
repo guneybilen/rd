@@ -5,7 +5,7 @@
         <%= form_for(@post) do |f|%>
             <%= render 'shared/error_messages', object: f.object %>
             <div class='field'>
-                <%= f.text_area :content, placeholder: "Compose new post..." %>
+                <%= f.text_area :content, placeholder: "Compose a new post..." %>
             </div>
             <%= f.submit 'Post', class: 'btn btn-large btn-primary' %>
         <% end %>
@@ -36,15 +36,7 @@
         <span class="timestamp">
             Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
         </span>
-                <br />
-                <%= link_to "Reply", "#", class: "comment_form_link", id: "#{i}" %>
-                <%= form_for(@post, html: {class: "comment_form", id: "#{i}"}) do |f|%>
-                    <%= render 'shared/error_messages', object: f.object %>
-                    <div class='field'>
-                        <%= f.text_area :content, placeholder: "Compose new post...", class: "text_area_in_comment_form" %>
-                    </div>
-                    <%= f.submit 'Post', class: 'btn btn-large btn-primary' %>
-                <% end %>
+              <%= render 'shared/comments.html.erb',  hash: @hash, i: i, feed_item: feed_item %>
               </li>
           <% i += 1 %>
           <% end %>
