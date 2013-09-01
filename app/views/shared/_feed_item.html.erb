@@ -15,8 +15,7 @@
                                      confirm: "You sure?",
                                      title: feed_item.content %>
   <% end %>
-  <%= i %>
-  <%= render 'shared/comments.html.erb',  hash: @hash, i: i, feed_item: feed_item %>
+  <%= render 'shared/comments',  hash: @hash, i: i, feed_item: feed_item %>
 </li>
 
 
