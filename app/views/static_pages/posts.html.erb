@@ -36,7 +36,9 @@
         <span class="timestamp">
             Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
         </span>
-              <%= render 'shared/comments',  hash: @hash, i: i, feed_item: feed_item %>
+              <div class="comments">
+                <%= render 'shared/comments',  hash: @hash, i: i, feed_item: feed_item %>
+              </div>
               </li>
           <% i += 1 %>
           <% end %>
