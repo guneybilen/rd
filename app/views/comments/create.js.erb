@@ -1,0 +1,11 @@
+/* , :locals => { :feed_item => @comment } */
+
+// ONEMLI NOT // arkasina bile gelse %= ve sondaki % isaretleri
+// delete etmezsen commented out olmuyor. hata sonucu buldum.
+//("< escape_javascript(render 'shared/feed_item') >")
+
+//@post.created_at.strftime("%Y%m%d%H%M%S")
+//$("a[href$=.pdf]")
+
+$('span[id="<%= @post.id %>"]').html("<%= escape_javascript(render 'shared/comments') %>");
+

@@ -1,0 +1,20 @@
+<!-- form_for(feed_item, url: {controller: :comments, action: :create}, :method => :post, remote: true, html: {class: "comment_form", id: "#{i}"}) do |f| -->
+<!-- form_for(feed_item.comments.build, remote: true, html: {class: "comment_form", id: "#{i}"} ) do |f| -->
+    <!-- render 'shared/error_messages', object: f.object -->
+    <!-- hidden_field_tag 'feed_item_id', feed_item.id -->
+
+
+<!-- feed_item ||= @feed_item -->
+<!-- i ||= @i_is_for_comment_form_partial -->
+
+<%= form_for(feed_item, url: {controller: :comments, action: :create, i: i, feed_item: feed_item}, :method => :post, remote: true, html: {class: "comment_form", id: "#{i}"} ) do |f| %>
+   <!-- debug(feed_item.to_json) -->
+    <%=  hidden_field_tag 'feed_item_id', feed_item.id  %>
+
+    <!-- debug("feed_item.inspect is: #{feed_item.id.inspect}") -->
+
+    <div class='field'>
+      <%= text_area_tag :comment, nil, {placeholder: "Compose a new comment...", class: "text_area_in_comment_form"} %>
+    </div>
+    <%= f.submit 'Comment', class: 'btn btn-large btn-primary' %>
+<% end %>

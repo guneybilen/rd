@@ -1,26 +1,30 @@
-<div class="comments">
-  <% unless @hash["#{feed_item}"].nil? %>
-      <% @hash["#{feed_item}"].each do |value, index| %>
-          <br>
+<% i ||= @i_is_for_comments_partial %>
+<% feed_item ||= @feed_item %>
+
+<!-- puts debug(feed_item.to_json) -->
+
+<!-- puts @hash["#{feed_item}"].nil? -->
+
+<span class="comments" id="<%= feed_item.id %>">
+  <!--feed_item.created_at.strftime("%Y%m%d%H%M%S")-->
+  <% feed_item.comments.each do |value| %>
+  <!-- unless @hash["#{feed_item}"].nil? -->
+
+      <!-- @hash["#{feed_item}"].each do |value, index| -->
+          <br />
           <%= value.comment %>
-          <br>
+          <br />
           Commented <%= time_ago_in_words(value.created_at) %> ago.
           <!-- text_area_tag :k, v, {disabled: true} -->
-          <br>
-      <% end %>
+          <br />
+      <!-- end -->
   <% end %>
-</div>
 <br/>
+
 <% if signed_in? %>
 <%= link_to "Reply", "#", class: "comment_form_reply_link", id: "#{i}" %>
-<%= form_for(feed_item, url: {controller: :comments, action: :create}, :method => :post, html: {class: "comment_form", id: "#{i}"}) do |f| %>
-    <!-- render 'shared/error_messages', object: f.object -->
-    <%= hidden_field_tag 'feed_item_id', feed_item.id %>
-    <div class='field'>
-      <%= text_area_tag :comment, nil, {placeholder: "Compose a new comment...", class: "text_area_in_comment_form"} %>
-    </div>
-    <%= f.submit 'Comment', class: 'btn btn-large btn-primary' %>
-<% end %>
+    <%= render 'shared/comment_form', i: i, feed_item: feed_item %>
 <% else %>
-<%= link_to "Reply", signin_path(going_for_root: "yes") %>
+    <%= link_to "Reply", signin_path(going_for_root: "yes") %>
 <% end %>
+</span>
