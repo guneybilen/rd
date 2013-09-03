@@ -9,22 +9,15 @@ class CommentsController < ApplicationController
     if signed_in?
       @post = Post.find(params[:feed_item_id])
       @i_is_for_comments_partial = params[:i]
-      @comment = @post.comments.create(comment: params[:comment])
-      @feed_item = @post
-      puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< #{@post.id}"
+      @comment = @post.comments.create(comment: params[:comment], user_id: params[:user_id])
       @feed_items = current_user.feed.paginate(page: params[:page])
-      #@feed_items = @feed_items.reload
       @hash = Hash.new
       @feed_items.each do |feed_item|
-        #puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ #{@hash[293].nil?}"
-        #if feed_item.id.to_s == '293'
         feed_item.comments.each do |comment|
           puts feed_item
           @hash["#{feed_item}"] = feed_item.comments.to_a
         end
-          #end
       end
-      puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ #{@feed_item.id}"
 
       flash[:success] = "Comment created!"
 
@@ -34,8 +27,18 @@ class CommentsController < ApplicationController
       end
 
     else
+
       redirect_to signin_path
+
     end
   end
 
+  def destroy
+      @post = Comment.find(params[:id]).post
+      Comment.find(params[:id]).destroy
+
+      respond_to do |format|
+        format.js
+      end
+  end
 end

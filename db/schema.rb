@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130829144627) do
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id",                                   :null => false
+    t.integer  "user_id",                                   :null => false
     t.text     "comment",    :limit => 3000
     t.integer  "success",                    :default => 0
     t.integer  "failure",                    :default => 0
