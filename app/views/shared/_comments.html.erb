@@ -27,9 +27,9 @@
 <br/>
 
 <% if signed_in? %>
-<%= link_to "Reply", "#", class: "comment_form_reply_link", id: "#{i}" %>
+<%= link_to "Reply", "#", {style: "margin-left:-50px",  class: "comment_form_reply_link", id: "#{i}"} %>
     <%= render 'shared/comment_form', i: i, feed_item: feed_item %>
 <% else %>
-    <%= link_to "Reply", signin_path(going_for_root: "yes") %>
+    <%= link_to "Reply", signin_path(going_for_root: "yes"), {style: "margin-left:-50px"} %>
 <% end %>
 </span>

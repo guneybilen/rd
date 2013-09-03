@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if signed_in?
       @post = Post.find(params[:feed_item_id])
       @i_is_for_comments_partial = params[:i]
-      @comment = @post.comments.create(comment: params[:comment])
+      @comment = @post.comments.create(comment: params[:comment], user_id: params[:user_id])
       @feed_items = current_user.feed.paginate(page: params[:page])
       @hash = Hash.new
       @feed_items.each do |feed_item|

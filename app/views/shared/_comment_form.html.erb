@@ -7,7 +7,7 @@
 <!-- feed_item ||= @feed_item -->
 <!-- i ||= @i_is_for_comment_form_partial -->
 
-<%= form_for(feed_item, url: {controller: :comments, action: :create, i: i, feed_item: feed_item}, :method => :post, remote: true, html: {class: "comment_form", id: "#{i}"} ) do |f| %>
+<%= form_for(feed_item, url: {controller: :comments, action: :create, i: i, feed_item: feed_item, user_id: current_user.id}, :method => :post, remote: true, html: {class: "comment_form", id: "#{i}"} ) do |f| %>
    <!-- debug(feed_item.to_json) -->
     <%=  hidden_field_tag 'feed_item_id', feed_item.id  %>
 
