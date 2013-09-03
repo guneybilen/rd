@@ -1,5 +1,5 @@
 <% i ||= @i_is_for_comments_partial %>
-<% feed_item ||= @feed_item %>
+<% feed_item ||= @post %>
 
 <!-- puts debug(feed_item.to_json) -->
 
@@ -13,6 +13,11 @@
       <!-- @hash["#{feed_item}"].each do |value, index| -->
           <br />
           <%= value.comment %>
+          <% if current_user?(value.user) %>
+            <!--NOTE In the link_to below remote: true and method: :delete order
+              does NOT matter. TRIED! -->
+            <%= link_to "Delete", comment_path(value), remote: true, method: :delete  %>
+          <% end %>
           <br />
           Commented <%= time_ago_in_words(value.created_at) %> ago.
           <!-- text_area_tag :k, v, {disabled: true} -->
