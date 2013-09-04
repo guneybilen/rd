@@ -31,7 +31,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
 section {
@@ -299,4 +299,14 @@ header ul#nav-links a{
   &:hover{
     text-decoration:underline;
   }
+}
+
+form#search_posts{
+  float: left;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+#search_posts_text_field{
+  width: 250px;
 }
