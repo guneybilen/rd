@@ -1,3 +1,4 @@
+
 @import "bootstrap";
 
 
@@ -5,7 +6,6 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
-
 
 
 /*
@@ -93,7 +93,7 @@ p {
   line-height: 1;
   &:hover {
     color: #fff;
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 
@@ -294,3 +294,9 @@ aside {
   margin-left: 50px;
 }
 
+header ul#nav-links a{
+  color: white;
+  &:hover{
+    text-decoration:underline;
+  }
+}
