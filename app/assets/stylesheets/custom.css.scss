@@ -312,7 +312,7 @@ form#search_posts_form{
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
-
+  font-size: 16px;
   width: 250px;
 }
 
@@ -320,4 +320,8 @@ form#search_posts_form{
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
+}
+
+header{
+  height: 30px !important;
 }

@@ -1,13 +1,21 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-inverse" style="height: 20px;">
   <div class="navbar-inner">
     <div class="container">
       <%= link_to "referansdata", root_path, id: "logo" %>
 
       <%= form_tag  search_posts_path, :method => 'get', class: "form-search",
               id: "search_posts_form" do %>
-        <%= text_field_tag :search, params[:search],
+        <% if @to_users %>
+        <%= text_field_tag :search_text, params[:search_text],
+                           placeholder: "Search Users",
+                           class: "input-medium search-query",
+                           id: "search_posts_form_text_field" %>
+        <% else %>
+        <%= text_field_tag :search_text, params[:search_text],
+                       placeholder: "Search Posts",
                        class: "input-medium search-query",
                        id: "search_posts_form_text_field" %>
+        <% end %>
         <button type="submit" name="" class="btn btn-primary"
                 id="search_posts_form_submit_button">
             <i class="icon-search icon-white"></i> Search
@@ -16,11 +24,11 @@
       <% end %>
       <nav>
         <ul class="nav pull-right" id="nav-links">
-          <li><%= link_to "Posts", root_path, class: "nav-link" %></li>
-          <li><%= link_to "Home", home_path, class: "nav-links" %></li>
-          <li><%= link_to "Help", help_path, class: "nav-links" %></li>
+          <li><%= link_to "Posts", root_path %></li>
+          <li><%= link_to "Home", home_path %></li>
+          <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path, class: "nav-links" %></li>
+            <li><%= link_to "Users", users_path, to_users: "to_users" %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
