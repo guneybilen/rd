@@ -3,19 +3,17 @@
     <div class="container">
       <%= link_to "referansdata", root_path, id: "logo" %>
 
-
-<%= form_tag  comments_path, :method => 'get', class: "form-search",
-              id: "search_posts" do %>
-    <%= text_field_tag :search, params[:search],
-                       class: "input-medium search-query", id: "search_posts_text_field" %>
-    <button type="submit" name="" class="btn btn-primary">
-        <i class="icon-search icon-white"></i> Search
-    </button>
+      <%= form_tag  search_posts_path, :method => 'get', class: "form-search",
+              id: "search_posts_form" do %>
+        <%= text_field_tag :search, params[:search],
+                       class: "input-medium search-query",
+                       id: "search_posts_form_text_field" %>
+        <button type="submit" name="" class="btn btn-primary"
+                id="search_posts_form_submit_button">
+            <i class="icon-search icon-white"></i> Search
+        </button>
      <!-- submit_tag "Search", :name => nil, class: "btn" -->
-
       <% end %>
-
-
       <nav>
         <ul class="nav pull-right" id="nav-links">
           <li><%= link_to "Posts", root_path, class: "nav-link" %></li>

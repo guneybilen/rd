@@ -301,12 +301,23 @@ header ul#nav-links a{
   }
 }
 
-form#search_posts{
+form#search_posts_form{
   float: left;
   margin-top: 5px;
   margin-left: 20px;
 }
 
-#search_posts_text_field{
+#search_posts_form_text_field{
+   /*border: 1px solid #999;*/
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+
   width: 250px;
+}
+
+#search_posts_form_submit_button{
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
 }
