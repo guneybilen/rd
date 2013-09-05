@@ -322,6 +322,15 @@ form#search_posts_form{
   border-radius: 50px;
 }
 
-header{
-  height: 30px !important;
+
+.load{
+    position: absolute;
+    z-index: 1000;
+    height: 300px;
+    width: 300px;
+    top: 280px;
+    left: 515px;
+    background: url('loader.gif')
+                no-repeat;
+    overflow: hidden;
 }
