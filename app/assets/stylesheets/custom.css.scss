@@ -305,13 +305,13 @@ header ul#nav-links a{
   }
 }
 
-form#search_posts_form{
+form#search_posts_form, form#search_users_form{
   float: left;
   margin-top: 5px;
   margin-left: 20px;
 }
 
-#search_posts_form_text_field{
+#search_posts_form_text_field, #search_users_form_text_field {
    /*border: 1px solid #999;*/
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
@@ -320,12 +320,19 @@ form#search_posts_form{
   width: 250px;
 }
 
-#search_posts_form_submit_button{
+#search_posts_form_submit_button, #search_users_form_submit_button{
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
 }
 
+.navbar-inverse .navbar-inner{
+    max-height: 50px;
+    box-shadow: none;
+    background-color: black;
+    filter: none;
+    background-image: none;
+}
 
 /*
 CSS for ajax loading spinner

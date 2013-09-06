@@ -49,8 +49,7 @@ $( document ).ready(function() {
     $('.text_area_in_comment_form').html('');
 
     // hide it first
-//    $(".loader").hide();
-$(".loader").hide();
+    $(".loader").hide();
 
     // document keyword must be there otherwise ajaxStart does not work
     // when an ajax request starts, show spinner

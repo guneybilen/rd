@@ -38,6 +38,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  simple_search :name
+
   def feed
     Post.from_users_followed_by(self)
     #Post.where("user_id = ?", id)  # this line is equivalent to just posts
