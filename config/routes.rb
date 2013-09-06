@@ -8,6 +8,8 @@ Rd::Application.routes.draw do
 
   match '/search_posts' => 'posts#search', :as => "search_posts"
 
+  match '/search_users' => 'users#search', :as => "search_users"
+
   resources :users do
     member do
       get :following, :followers

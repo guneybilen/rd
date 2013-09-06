@@ -4,6 +4,19 @@ class UsersController < ApplicationController
   before_filter :correct_user, only:[:edit, :update]
   before_filter :admin_user, only: :destroy
 
+  def search
+
+      if params[:search_text].blank?
+        @to_users = true
+        index
+        render 'users/index' and return
+      end
+
+      @users = User.search(params[:search_text])
+      @users = @users.paginate(page: params[:page])
+      render 'users/index'
+  end
+
 
   def following
     @title = 'Following'
