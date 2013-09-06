@@ -1,1 +1,2 @@
+$(".flash").html("<%= escape_javascript(render :partial => 'layouts/flash', locals: { flash: flash}) %>");
 $('span[id="<%= @post.id %>"]').html("<%= escape_javascript(render 'shared/comments') %>");

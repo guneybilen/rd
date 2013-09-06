@@ -40,6 +40,8 @@ class CommentsController < ApplicationController
       @post = Comment.find(params[:id]).post
       Comment.find(params[:id]).destroy
 
+      flash.now[:success] = "Comment destroyed!"
+
       respond_to do |format|
         format.js
       end

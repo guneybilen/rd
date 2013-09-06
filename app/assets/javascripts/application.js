@@ -56,22 +56,16 @@ $(".loader").hide();
     // when an ajax request starts, show spinner
     $(document).ajaxStart(function(){
 
-//        $(".batin").hide();
+        $(".batin").hide();
         $(".loader").show();
 //        $(".span_comment").replaceWith($(".loader").show());
-//        });
-//        alert($('.clicked_link').attr("id"));
 
     });
 
     // document keyword must be there otherwise ajaxStop does not work
     // when an ajax request complets, hide spinner
     $(document).ajaxStop(function(){
-//        alert("guney")
-          $(".span_comment").hide();
-//         $(".loader").replaceWith($(".span_comment"));
 
-//        $(".loader").hide();
-//        $(".batin").show();
+        $(".batin").show();
     });
 });

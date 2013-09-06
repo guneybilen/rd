@@ -323,7 +323,9 @@ form#search_posts_form{
 }
 
 
-.load{
+/*
+CSS for ajax loading spinner
+{
     position: absolute;
     z-index: 1000;
     height: 300px;
@@ -333,4 +335,4 @@ form#search_posts_form{
     background: url('loader.gif')
                 no-repeat;
     overflow: hidden;
-}
+}*/
