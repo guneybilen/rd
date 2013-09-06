@@ -8,7 +8,7 @@
 <span class="comments" id="<%= feed_item.id %>">
   <!--feed_item.created_at.strftime("%Y%m%d%H%M%S")-->
   <% feed_item.comments.each do |value| %>
-  <!-- unless @hash["#{feed_item}"].nil? -->
+  <% unless value.id.nil? %>
 
       <!-- @hash["#{feed_item}"].each do |value, index| -->
           <br />
@@ -22,7 +22,7 @@
           Commented <%= time_ago_in_words(value.created_at) %> ago.
           <!-- text_area_tag :k, v, {disabled: true} -->
           <br />
-      <!-- end -->
+      <% end %>
   <% end %>
 <br/>
 

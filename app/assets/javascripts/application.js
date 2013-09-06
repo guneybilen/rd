@@ -16,11 +16,18 @@
 //= require_tree .
 
 $( document ).ready(function() {
-    $(".comment_form_reply_link").on('click', function(e){
+    $(document).delegate(".comment_form_reply_link", "click", function(e){
+//    $(".comment_form_reply_link").live('click', function(e){
 
+        $(this).addClass("clicked_link");
         var link = $(this).attr("id");
         var text_box = $(this).next('.comment_form');
 
+        $(".comment_form:eq(" + link + ") > .comment").addClass('batin');
+
+        $(".comment_form:eq(" + link + ")")
+                            .append("<span class='span_comment'><img src='assets/loader.gif' class='loader'/></span>");
+        $(".loader").hide();
         $(".comment_form:eq(" + link + ")")
             .animate({height: ["toggle", "swing"]}, "slow");
 
@@ -40,4 +47,25 @@ $( document ).ready(function() {
 });
 
     $('.text_area_in_comment_form').html('');
+
+    // hide it first
+//    $(".loader").hide();
+$(".loader").hide();
+
+    // document keyword must be there otherwise ajaxStart does not work
+    // when an ajax request starts, show spinner
+    $(document).ajaxStart(function(){
+
+        $(".batin").hide();
+        $(".loader").show();
+//        $(".span_comment").replaceWith($(".loader").show());
+
+    });
+
+    // document keyword must be there otherwise ajaxStop does not work
+    // when an ajax request complets, hide spinner
+    $(document).ajaxStop(function(){
+
+        $(".batin").show();
+    });
 });

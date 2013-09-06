@@ -6,7 +6,13 @@ class CommentsController < ApplicationController
   # gecir: .create(comment: params[:comment])
 
   def create
+    sleep 2
     if signed_in?
+      if params[:comment].blank?
+        flash.now[:error] = "Comment cannot be blank!"
+      else
+        flash.now[:success] = "Comment created!"
+      end
       @post = Post.find(params[:feed_item_id])
       @i_is_for_comments_partial = params[:i]
       @comment = @post.comments.create(comment: params[:comment], user_id: params[:user_id])
@@ -14,12 +20,9 @@ class CommentsController < ApplicationController
       @hash = Hash.new
       @feed_items.each do |feed_item|
         feed_item.comments.each do |comment|
-          puts feed_item
           @hash["#{feed_item}"] = feed_item.comments.to_a
         end
       end
-
-      flash[:success] = "Comment created!"
 
       respond_to do |format|
         format.html { redirect_to root_path }
@@ -36,6 +39,8 @@ class CommentsController < ApplicationController
   def destroy
       @post = Comment.find(params[:id]).post
       Comment.find(params[:id]).destroy
+
+      flash.now[:success] = "Comment destroyed!"
 
       respond_to do |format|
         format.js

@@ -1,3 +1,4 @@
+
 @import "bootstrap";
 
 
@@ -5,7 +6,6 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
-
 
 
 /*
@@ -31,7 +31,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
 section {
@@ -93,7 +93,7 @@ p {
   line-height: 1;
   &:hover {
     color: #fff;
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 
@@ -298,3 +298,45 @@ aside {
   margin-left: 50px;
 }
 
+header ul#nav-links a{
+  color: white;
+  &:hover{
+    text-decoration:underline;
+  }
+}
+
+form#search_posts_form{
+  float: left;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+#search_posts_form_text_field{
+   /*border: 1px solid #999;*/
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  font-size: 16px;
+  width: 250px;
+}
+
+#search_posts_form_submit_button{
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+
+
+/*
+CSS for ajax loading spinner
+{
+    position: absolute;
+    z-index: 1000;
+    height: 300px;
+    width: 300px;
+    top: 280px;
+    left: 515px;
+    background: url('loader.gif')
+                no-repeat;
+    overflow: hidden;
+}*/

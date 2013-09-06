@@ -27,6 +27,9 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
+    if defined?(params[:to_users])
+      @to_users = true
+    end
   end
 
   def correct_user
