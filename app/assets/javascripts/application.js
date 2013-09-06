@@ -25,7 +25,9 @@ $( document ).ready(function() {
 
         $(".comment_form:eq(" + link + ") > .comment").addClass('batin');
 
-
+        $(".comment_form:eq(" + link + ")")
+                            .append("<span class='span_comment'><img src='assets/loader.gif' class='loader'/></span>");
+        $(".loader").hide();
         $(".comment_form:eq(" + link + ")")
             .animate({height: ["toggle", "swing"]}, "slow");
 
@@ -47,14 +49,16 @@ $( document ).ready(function() {
     $('.text_area_in_comment_form').html('');
 
     // hide it first
-    $(".loader").hide();
+//    $(".loader").hide();
+$(".loader").hide();
 
     // document keyword must be there otherwise ajaxStart does not work
     // when an ajax request starts, show spinner
     $(document).ajaxStart(function(){
 
 //        $(".batin").hide();
-        $(".span_comment").replaceWith($(".loader").show());
+        $(".loader").show();
+//        $(".span_comment").replaceWith($(".loader").show());
 //        });
 //        alert($('.clicked_link').attr("id"));
 
@@ -63,8 +67,10 @@ $( document ).ready(function() {
     // document keyword must be there otherwise ajaxStop does not work
     // when an ajax request complets, hide spinner
     $(document).ajaxStop(function(){
-        alert("guney")
-         $(".span_comment").replaceWith("");
+//        alert("guney")
+          $(".span_comment").hide();
+//         $(".loader").replaceWith($(".span_comment"));
+
 //        $(".loader").hide();
 //        $(".batin").show();
     });
