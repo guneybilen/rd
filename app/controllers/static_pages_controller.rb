@@ -33,6 +33,11 @@ class StaticPagesController < ApplicationController
           @hash["#{feed_item}"] = feed_item.comments.to_a
       end
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
 end

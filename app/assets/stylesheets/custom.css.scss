@@ -327,11 +327,15 @@ form#search_posts_form, form#search_users_form{
 }
 
 .navbar-inverse .navbar-inner{
-    max-height: 50px;
-    box-shadow: none;
-    background-color: black;
-    filter: none;
-    background-image: none;
+   max-height: 50px;
+   box-shadow: none;
+   background-color: black;
+   filter: none;
+   background-image: none;
+}
+
+.dropdown-menu{
+   background-color: black;
 }
 
 /*
