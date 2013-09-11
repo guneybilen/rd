@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
   # gecir: .create(comment: params[:comment])
 
   def create
-    sleep 2
     if signed_in?
       if params[:comment].blank?
         flash.now[:error] = "Comment cannot be blank!"
@@ -39,6 +38,7 @@ class CommentsController < ApplicationController
   def destroy
       @post = Comment.find(params[:id]).post
       Comment.find(params[:id]).destroy
+      @i_is_for_comments_partial = params[:i]
 
       flash.now[:success] = "Comment destroyed!"
 

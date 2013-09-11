@@ -16,7 +16,10 @@
           <% if !current_user.nil? && (current_user.admin? || current_user?(value.user)) %>
             <!--NOTE In the link_to below remote: true and method: :delete order
               does NOT matter. TRIED! -->
-            <%= link_to "Delete", comment_path(value), remote: true, method: :delete  %>
+            <%= link_to "Delete", comment_path(value, i: i), remote: true,
+                                                       method: :delete,
+                                                       confirm: "You sure?",
+                                                       title: "Affirmation..."  %>
           <% end %>
           <br />
           Commented <%= time_ago_in_words(value.created_at) %> ago by <br />
@@ -29,8 +32,11 @@
 <br/>
 
 <% if signed_in? %>
-<%= link_to "Reply", "#", {style: "margin-left:-50px",  class: "comment_form_reply_link", id: "#{i}"} %>
-    <%= render 'shared/comment_form', i: i, feed_item: feed_item %>
+
+<%= link_to("Reply", "#", {style: "margin-left:-50px",
+                           class: "comment_form_reply_link",
+                           id: "#{i}"}) %>
+      <%= render 'shared/comment_form', i: i, feed_item: feed_item %>
 <% else %>
     <%= link_to "Reply", signin_path(going_for_root: "yes"), {style: "margin-left:-50px"} %>
 <% end %>
