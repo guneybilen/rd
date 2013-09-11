@@ -3,7 +3,7 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
       t.integer :post_id, :null => false
       t.integer :user_id, :null => false
-      t.text :comment, :limit => 3000
+      t.text :comment
       t.integer :success, :default => 0
       t.integer :failure, :default => 0
 
