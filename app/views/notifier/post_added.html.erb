@@ -20,7 +20,11 @@ Post added.
 
   <%= truncate(@post.content, :length => 250, :separator => ' ', :omission => '...' )%>
   <br />
-  by <%= User.current.name  %>
+  <% if User.current.nil? %>
+    by Anonymous
+  <% else %>
+    by <%= User.current.name  %>
+  <% end %>
 
   <br />
   <% if Rails.env.development? %>

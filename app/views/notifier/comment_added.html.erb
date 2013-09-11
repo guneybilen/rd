@@ -19,7 +19,12 @@ Comment added to your post.
    <!-- link_to @job.title, job_url(@job, :host => 'www.isgetir.com') -->
 
   <%= truncate(@comment.comment, :length => 250, :separator => ' ', :omission => '...' )%>
-  by <%= User.current.name %>
+  <% if User.current.nil? %>
+     by Anonymous
+  <% else %>
+     by <%= User.current.name  %>
+  <% end %>
+
   <br />
   <% if Rails.env.development? %>
     <%= link_to post_url(@post, :host => 'localhost:3000'),

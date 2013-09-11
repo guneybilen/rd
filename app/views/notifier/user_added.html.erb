@@ -1,7 +1,7 @@
 <html>
 <body>
 <p>
-User added:<i><%= @user.email %></i>
+User added: <i><%= @user.email %></i>
 <br />
   <% if Rails.env.development? %>
     <%= link_to @user.name, user_url(@user, :host => 'localhost:3000') %>
