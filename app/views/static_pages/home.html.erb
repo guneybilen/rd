@@ -12,21 +12,12 @@
         </section>
       </aside>
       <div class="span8">
-        <h3>Post Feed</h3>
-        <%= render 'shared/feed' %>
+        <h3 class = 'posts'>Post Feed</h3>
+        <%= render 'shared/feed', hash: @hash %>
       </div>
     </div>
 <% else %>
-    <div class="center hero-unit">
-      <h1>ReferansData</h1>
-
-      <h2>
-        This is the home page for the Referans Data Engine
-      </h2>
-
-      <%= link_to "Sign up now!", signup_path,
-                  class: "btn btn-large btn-primary" %>
-    </div>
-
-    <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+    <script type="text/javascript">
+      window.location.href='/signin'
+    </script>
 <% end %>

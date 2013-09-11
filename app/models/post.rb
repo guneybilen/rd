@@ -16,7 +16,11 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
 
+  has_many :comments, :dependent => :destroy
+
   default_scope order: "posts.created_at DESC"
+
+  simple_search :content
 
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships

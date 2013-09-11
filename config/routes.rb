@@ -1,12 +1,22 @@
 Rd::Application.routes.draw do
 
+  #do
+  #  member do
+  #    post :comments, :only => [:create, :destroy]
+  #  end
+  #end
+
+  match '/search_posts' => 'posts#search', :as => "search_posts"
+
+  match '/search_users' => 'users#search', :as => "search_users"
+
   resources :users do
     member do
       get :following, :followers
     end
   end
 
-  root to: 'static_pages#home'
+  root to: 'static_pages#posts'
 
   match '/help', to: 'static_pages#help'
 
@@ -14,15 +24,19 @@ Rd::Application.routes.draw do
 
   match '/contact', to: 'static_pages#contact'
 
+  match '/home', to: 'static_pages#home'
+
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  resources :posts, only: [:create, :destroy]
+  resources :posts, only: [:create, :destroy, :show]
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :comments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

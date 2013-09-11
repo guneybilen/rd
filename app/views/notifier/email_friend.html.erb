@@ -1,0 +1,27 @@
+<html>
+<body>
+<p>
+<%= t('notifier.email_friend.one_of_your_friend') %>, <%= @sender_name %>,
+<%= t('notifier.email_friend.you_might_like_this') %>.
+</p>
+<p>
+<strong><%= @job.title %></strong>
+  <br />
+  <%= link_to(url_for(locale: locale,
+              controller: 'jobs',
+              action: 'show',
+              id: @job.id,
+              host: "www.isgetir.com"),
+              url_for(locale: locale,
+              controller: 'jobs',
+              action: 'show',
+              id: @job.id,
+              host: "www.isgetir.com"))%>
+
+  <!-- asagidaki job_url methodu routing error veriyor:
+      'no route matches action=show controller=jobs...' -->
+  <!-- link_to job_url(@job, :host => 'www.isgetir.com'),
+        job_url(@job, :host => 'www.isgetir.com') -->
+</p>
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 @import "bootstrap";
 
 
@@ -5,7 +6,6 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
-
 
 
 /*
@@ -31,7 +31,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
 section {
@@ -93,7 +93,7 @@ p {
   line-height: 1;
   &:hover {
     color: #fff;
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 
@@ -246,7 +246,8 @@ input {
 
 .posts {
   list-style: none;
-  margin: 10px 0 0 0;
+  margin: 0 0 0 0;
+  margin-left: 50px;
 
   li {
     padding: 10px 0;
@@ -265,7 +266,96 @@ input {
 }
 aside {
   textarea {
+    margin-top: 5px;
     height: 100px;
     margin-bottom: 5px;
   }
 }
+
+
+
+/* denemeler */
+.h3_in_static_pages_help{
+  text-align:left;
+}
+
+.btn_css_my_edition{
+  margin-left:50px;
+}
+
+.comment_form{
+  display: none;
+}
+
+.text_area_in_comment_form{
+  margin-top: 20px;
+  height: 100px;
+  width: 100%;
+}
+
+.comments {
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+header ul#nav-links a{
+  color: white;
+  &:hover{
+    text-decoration:underline;
+  }
+}
+
+form#search_posts_form, form#search_users_form{
+  float: left;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+#search_posts_form_text_field, #search_users_form_text_field {
+   /*border: 1px solid #999;*/
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  font-size: 16px;
+  width: 250px;
+}
+
+#search_posts_form_submit_button, #search_users_form_submit_button{
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+
+.navbar-inverse .navbar-inner{
+   max-height: 50px;
+   box-shadow: none;
+   background-color: black;
+   filter: none;
+   background-image: none;
+}
+
+.dropdown-menu{
+   background-color: black;
+}
+
+.next, .next_page{
+  float:left;
+}
+
+#posts_show_page_form{
+  display: none;
+}
+
+/*
+CSS for ajax loading spinner
+{
+    position: absolute;
+    z-index: 1000;
+    height: 300px;
+    width: 300px;
+    top: 280px;
+    left: 515px;
+    background: url('loader.gif')
+                no-repeat;
+    overflow: hidden;
+}*/

@@ -1,7 +1,7 @@
 <li id="<%= feed_item.id %>">
-  <a href="<%= user_path(current_user) %>" style="float: left; margin-right: 10px">
-     <%= image_tag 'rails.png'  %>
-  </a>
+  <!-- a href="<%= user_path(current_user) %>" style="float: left; margin-right: 10px">
+     < image_tag 'rails.png'  >
+  </a -->
   <span class="user">
     <%= link_to feed_item.user.name, feed_item.user %>
   </span>
@@ -9,10 +9,14 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
   </span>
-  <% if current_user?(feed_item.user) %>
+  <% if !current_user.nil? && (current_user.admin? || current_user?(feed_item.user)) %>
     <%= link_to 'delete', feed_item, method: :delete,
                                      confirm: "You sure?",
                                      title: feed_item.content %>
   <% end %>
+  <div class="comments">
+  <%= render 'shared/comments',  hash: @hash, i: i, feed_item: feed_item %>
+  </div>
 </li>
+
 

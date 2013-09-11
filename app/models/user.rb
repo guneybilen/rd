@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
 
@@ -35,6 +37,19 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  simple_search :name
+
+  # to get  current user from Notifier.rb; gotten from Internet
+  def self.current
+    Thread.current[:user]
+  end
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
+  # see ApplicationController for its counterpart. 2 parts total
+  ################################################################
+
 
   def feed
     Post.from_users_followed_by(self)

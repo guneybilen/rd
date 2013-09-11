@@ -1,0 +1,34 @@
+<html>
+<body>
+<p>
+Comment added to your post.
+<br />
+  <!-- link_to(url_for(locale: locale,
+                controller: 'jobs',
+                action: 'show',
+                id: @job.id,
+                host: "www.isgetir.com"),
+                url_for(locale: locale,
+                controller: 'jobs',
+                action: 'show',
+                id: @job.id,
+                host: "www.isgetir.com"))-->
+
+    <!-- asagidaki job_url methodu routing error veriyor:
+        'no route matches action=show controller=jobs...' -->
+   <!-- link_to @job.title, job_url(@job, :host => 'www.isgetir.com') -->
+
+  <%= truncate(@comment.comment, :length => 250, :separator => ' ', :omission => '...' )%>
+  by <%= User.current.name %>
+  <br />
+  <% if Rails.env.development? %>
+    <%= link_to post_url(@post, :host => 'localhost:3000'),
+                post_url(@post, :host => 'localhost:3000') %>
+  <% elsif Rails.env.production? %>
+    <%= link_to post_url(@post, :host => 'www.referansdata.com'),
+                post_url(@post, :host => 'www.referansdata.com') %>
+  <% end %>
+
+</p>
+</body>
+</html>
