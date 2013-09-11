@@ -20,11 +20,15 @@ Post added.
 
   <%= truncate(@post.content, :length => 250, :separator => ' ', :omission => '...' )%>
   <br />
+  by <%= User.current.name  %>
 
+  <br />
   <% if Rails.env.development? %>
-    <%= link_to @post.user.name, post_url(@post, :host => 'localhost:3000') %>
+    <%= link_to post_url(@post, :host => 'localhost:3000'),
+                post_url(@post, :host => 'localhost:3000') %>
   <% elsif Rails.env.production? %>
-    <%= link_to @post.user.name, post_url(@post, :host => 'www.referansdata.com') %>
+    <%= link_to post_url(@post, :host => 'www.referansdata.com'),
+                post_url(@post, :host => 'www.referansdata.com') %>
   <% end %>
 
 </p>

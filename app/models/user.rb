@@ -40,6 +40,17 @@ class User < ActiveRecord::Base
 
   simple_search :name
 
+  # to get  current user from Notifier.rb; gotten from Internet
+  def self.current
+    Thread.current[:user]
+  end
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
+  # see ApplicationController for its counterpart. 2 parts total
+  ################################################################
+
+
   def feed
     Post.from_users_followed_by(self)
     #Post.where("user_id = ?", id)  # this line is equivalent to just posts
