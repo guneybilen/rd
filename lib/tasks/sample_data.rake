@@ -15,7 +15,7 @@
                   password_confirmation: "foobar")
      admin.toggle!(:admin)
 
-     60.times do |n|
+     30.times do |n|
        name = Faker::Name.name
        email = "example-#{n+1}@railstutorial.org"
        password = 'password'
@@ -25,7 +25,7 @@
 
    def make_posts
      users = User.all(limit:6)
-     50.times do
+     20.times do
        content = Faker::Lorem.sentence(5)
        users.each { |user| user.posts.create!(content: content) }
      end
@@ -34,8 +34,8 @@
    def make_relationships
      users = User.all
      user = users.first
-     followed_users = users[2..50]
-     followers      = users[3..40]
+     followed_users = users[2..20]
+     followers      = users[3..20]
      followed_users.each { |followed| user.follow!(followed) }
      followers.each      { |follower| follower.follow!(user) }
    end
