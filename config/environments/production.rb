@@ -70,4 +70,24 @@ Rd::Application.configure do
   # and use secure cookies.
   # config.force_ssl = true
 
+
+
+
+
+
+
+  config.action_mailer.default_url_options = { :host => "www.referansdata.com" }
+
+  # Email configuration
+  config.action_mailer.raise_delivery_errors = true
+  # Gmail SMTP server setup
+  ActionMailer::Base.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :enable_starttls_auto => true,
+      :port => 587,
+      :authentication => :plain,
+      :user_name => ENV['GOOGLE_USER'],
+      :password => ENV['GOOGLE_PASS']
+  }
+
 end

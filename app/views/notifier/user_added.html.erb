@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>
+User added:<i><%= @user.email %></i>
+<br />
+  <% if Rails.env.development? %>
+    <%= link_to @user.name, user_url(@user, :host => 'localhost:3000') %>
+  <% elsif Rails.env.production? %>
+    <%= link_to @user.name, user_url(@user, :host => 'www.referansdata.com') %>
+  <% end %>
+</p>
+</body>
+</html>

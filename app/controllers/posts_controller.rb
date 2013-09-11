@@ -2,6 +2,16 @@ class PostsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user, only: :destroy
 
+  def show
+    if signed_in?
+      @post = current_user.posts.build(params[:post])
+    end
+
+    @feed_items = []
+    @feed_items << Post.find(params[:id])
+    @comments = @feed_items[0].comments.paginate(page: params[:page])
+  end
+
   def search
     if signed_in?
       @post = current_user.posts.build(params[:post])

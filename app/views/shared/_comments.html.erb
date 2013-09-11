@@ -13,7 +13,7 @@
       <!-- @hash["#{feed_item}"].each do |value, index| -->
           <br />
           <%= value.comment %>
-          <% if !current_user.nil? && current_user.admin? && current_user?(value.user) %>
+          <% if !current_user.nil? && (current_user.admin? || current_user?(value.user)) %>
             <!--NOTE In the link_to below remote: true and method: :delete order
               does NOT matter. TRIED! -->
             <%= link_to "Delete", comment_path(value), remote: true, method: :delete  %>

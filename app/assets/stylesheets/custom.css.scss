@@ -338,6 +338,14 @@ form#search_posts_form, form#search_users_form{
    background-color: black;
 }
 
+.next, .next_page{
+  float:left;
+}
+
+#posts_show_page_form{
+  display: none;
+}
+
 /*
 CSS for ajax loading spinner
 {
