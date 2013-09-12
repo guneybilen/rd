@@ -10,6 +10,8 @@ Rd::Application.routes.draw do
 
   match '/search_users' => 'users#search', :as => "search_users"
 
+  match '/posts/posts_search_autocomplete' => 'posts#posts_search_autocomplete'
+
   resources :users do
     member do
       get :following, :followers

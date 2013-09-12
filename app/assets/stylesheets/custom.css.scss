@@ -324,6 +324,7 @@ form#search_posts_form, form#search_users_form{
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
+  float:left;
 }
 
 .navbar-inverse .navbar-inner{
@@ -345,6 +346,7 @@ form#search_posts_form, form#search_users_form{
 #posts_show_page_form{
   display: none;
 }
+
 
 /*
 CSS for ajax loading spinner

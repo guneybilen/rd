@@ -2,6 +2,26 @@ class PostsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user, only: :destroy
 
+  def posts_search_autocomplete
+     keyword = params[:q]
+     h = Array.new
+     if (keyword.length > 1)
+       @posts = Post.search(keyword)
+       @posts.each do |post|
+         @posts = h << ({:id => post.content, #this value goes into search_text parameter that is needed in search method in this class
+                         :post => post.content.truncate(40, :separator => ' '),
+                         :name => post.user.name})
+       end
+       @posts = @posts.sort_by { |k| k[:name] }
+
+       respond_to do |format|
+         format.js
+         format.json { render json: @posts }  #autocomplete icin format.json { render json: @jobs} gerekiyor
+       end
+     end
+   end
+
+
   def show
     if signed_in?
       @post = current_user.posts.build(params[:post])

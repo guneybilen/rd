@@ -67,4 +67,44 @@ $( document ).ready(function() {
 
         $(".batin").show();
     });
+
+     $('#search_posts_form_text_field').tokenInput("/posts/posts_search_autocomplete",
+        {
+            theme: "facebook",
+            tokenLimit:1,
+            minChars: 2,
+            resultsLimit: 10,
+            hintText: "Please type in the search term...",
+            noResultsText: "No results have been found...",
+            searchingText: "We're searching...",
+            preventDuplicates: true,
+            propertyToSearch: "post",
+            resultsFormatter: function(item){
+              return "<li>"  +
+              item.post  + "," + "<span style='padding-left: 10px'>"+ item.name + "</span>" + "</li>"
+          }
+        }
+    );
+
+//    $('').css("height","300px", "outline", "none");
+
+
+    $("#token-input-search_posts_form_text_field").focus(function () {
+
+       $(this).css("width", "300px");
+
+    });
+
+    $("#token-input-search_posts_form_text_field").keyup(function () {
+
+       $(this).css("width", "300px");
+
+    });
+
+    $("#token-input-search_posts_form_text_field").blur(function () {
+
+       $(this).css("width", "300px");
+
+    });
+
 });
