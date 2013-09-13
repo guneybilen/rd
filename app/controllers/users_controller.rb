@@ -4,6 +4,28 @@ class UsersController < ApplicationController
   before_filter :correct_user, only:[:edit, :update]
   before_filter :admin_user, only: :destroy
 
+  def users_search_autocomplete
+       keyword = params[:q]
+       h = Array.new
+       if (keyword.length > 1)
+         @users = User.search(keyword)
+         @users.each do |user|
+           @users = h << ({:id => user.name, #this value goes into search_text parameter that is needed in search method in this class
+                           :name => user.name})
+         end
+
+#      @users = @users.sort_by { |k| k[:name] }
+
+       respond_to do |format|
+           format.js
+           format.json { render json: @users }  #autocomplete icin format.json { render json: @jobs} gerekiyor
+         end
+       end
+  end
+
+
+
+
   def search
 
       if params[:search_text].blank?
