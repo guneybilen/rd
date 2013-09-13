@@ -30,28 +30,28 @@ class Notifier < ActionMailer::Base
 
     #puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% " + @job.user.email
     mail :to => @post.user.email,
-         :subject => "Comment added", :from =>  "coffeelatte2007@gmail.com"
+         :subject => "Comment added", :from =>  "admin@isgetir.com"
   end
 
   def user_added(user)
     @user = user
-    mail :to => "guneybilen@yahoo.com",
+    mail :to => "coffeelatte2007@gmail.com",
          :subject => " #{@user.email}",
-         :from =>  "coffeelatte2007@gmail.com"
+         :from =>  "admin@isgetir.com"
   end
 
   def post_added(post)
     @post = post
-    mail :to => "guneybilen@yahoo.com",
+    mail :to => "coffeelatte2007@gmail.com",
          :subject => "#{@post.user.email} " + "Post added",
-         :from =>  "coffeelatte2007@gmail.com"
+         :from =>  "admin@isgetir.com"
   end
 
 
   def password_reset(user)
     @user = user
     mail :to => user.email, :subject => "Password reset",
-         :from =>  "coffeelatte2007@gmail.com"
+         :from =>  "admin@isgetir.com"
   end
 end
 
