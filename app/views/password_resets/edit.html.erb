@@ -1,0 +1,24 @@
+<div class="change_password_after_email">
+<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+
+
+
+  <h2 class="password_reset_h1">Change Password</h2>
+
+  <br />
+      <div class="row">
+        <div class="span6 offset3">
+
+
+    <%= f.label 'Password' %>
+    <%= f.password_field :password, class: "password_field_in_password_resets_edit" %>
+    <%= f.label 'Password Confirmation' %> <!-- burda burda f.label kullanmiyorum cunku
+     messes up the capitalization it gives output as: Aynı Şifreyi tekrar girin:  -->
+    <%= f.password_field :password_confirmation, class: "password_field_in_password_resets_edit" %>
+
+    <div class="field">
+      <%= f.submit 'Update Password', :class => "btn btn-primary password_reset_submit" %>
+    </div>
+<% end %>
+</div>
+</div></div>

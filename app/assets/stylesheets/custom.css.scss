@@ -352,6 +352,27 @@ form#search_posts_form, form#search_users_form{
   display: none;
 }
 
+.new_user_sign_up_now{
+  margin-top: -20px;
+}
+
+#password_reset{
+  margin-top: 5px;
+}
+
+.password_resets_text_field_tag{
+  margin-top: -20px;
+}
+
+.password_field_in_password_resets_edit{
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 300px;
+}
+
+.field_with_errors{
+  margin-top: 0px;
+}
 
 /*
 CSS for ajax loading spinner

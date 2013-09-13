@@ -14,6 +14,8 @@ Rd::Application.routes.draw do
 
   match '/users/users_search_autocomplete' => 'users#users_search_autocomplete'
 
+  resources :password_resets
+
   resources :users do
     member do
       get :following, :followers

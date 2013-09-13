@@ -14,6 +14,12 @@
       <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
+    <p class="new_user_sign_up_now">New user? <%= link_to "Sign up now!", signup_path %></p>
+
+<div class="forgotten_password field">
+      <%= link_to "Forgotten Password?", '#',
+                  :id => "forgot_my_password" %>
+      <%= render :file => 'password_resets/new'%>
 </div>
+  </div>
+  </div>

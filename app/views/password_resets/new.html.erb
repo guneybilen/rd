@@ -1,0 +1,19 @@
+
+<%= form_tag password_resets_path, :method => :post, :id => "password_reset",:style => 'display:none' do %>
+
+  <%= label_tag 'Email Address' %>:
+  <%= text_field_tag :email, params[:email], :class => "password_resets_text_field_tag" %>
+
+  <%= submit_tag 'Reset Password', :class => "btn btn-primary password_reset", id: "password_reset_submit" %>
+
+  <span class="password_reset_cancel">
+  &nbsp;
+  Or
+  &nbsp;
+  <%= link_to "Cancel", '#' ,
+                 :id => "cancel_password_reset"%>
+  </span>
+
+<% end %>
+
+

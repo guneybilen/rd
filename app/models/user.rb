@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
   simple_search :name
 
-  # to get  current user from Notifier.rb; gotten from Internet
+  # to get  current user at Notifier.rb; gotten from Internet
   def self.current
     Thread.current[:user]
   end
@@ -50,6 +50,23 @@ class User < ActiveRecord::Base
   # see ApplicationController for its counterpart. 2 parts total
   ################################################################
 
+
+  ###############################################################
+  # send_password_reset and generate_token methods are
+  # the only methods used for password resetting in this class
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!(validate: false)
+    Notifier.password_reset(self).deliver
+  end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+  ################################################################
 
   def feed
     Post.from_users_followed_by(self)

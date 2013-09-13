@@ -47,6 +47,7 @@ $( document ).ready(function() {
 });
 
     $('.text_area_in_comment_form').html('');
+    $('password_resets_text_field_tag').html('');
 
     // hide it first
     $(".loader").hide();
@@ -142,5 +143,13 @@ $( document ).ready(function() {
 
     });
 
+
+    $("#forgot_my_password").click ( function () {
+        $('#password_reset').slideDown();
+    });
+
+    $("#cancel_password_reset").click ( function () {
+        $('#password_reset').slideUp();
+    });
 
 });
