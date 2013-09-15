@@ -15,7 +15,24 @@
 //= require bootstrap
 //= require_tree .
 
+function updatePosts () {
+//  var article_id = $("#article").attr("data-id");
+  if ($(".polls").length > 0) {
+    var after = $(".polls").attr("data-time");
+  } else {
+    var after = "0";
+  }
+  $.getScript("/polls.js?after=" + after);
+  setTimeout(updatePosts, 1000);
+}
+
+
 $( document ).ready(function() {
+
+    if ($(".posts").length > 0) {
+        setTimeout(updatePosts, 1000);
+    }
+
     $(document).delegate(".comment_form_reply_link", "click", function(e){
 //    $(".comment_form_reply_link").live('click', function(e){
 

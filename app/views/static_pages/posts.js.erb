@@ -1,4 +1,4 @@
-$('.pre-posts').append('<%= j render( partial: "shared/feed", loccals: {:@feed_items => @feed_items}) %>');
+$('.pre-posts').append('<%= j render( partial: "shared/feed", locals: {:@feed_items => @feed_items}) %>');
 
 <% if @feed_items.next_page %>
  if (!$('.pagination').length > 1){

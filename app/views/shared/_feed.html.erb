@@ -7,5 +7,8 @@
     <% i += 1 %>
     <% end %>
   </ol>
-  <%= will_paginate @feed_items  %>
+    <% if !no_will_paginate %>
+      <%= will_paginate @feed_items  %>
+    <% end %>
 <% end %>
+

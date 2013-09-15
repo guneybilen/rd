@@ -16,6 +16,8 @@ Rd::Application.routes.draw do
 
   resources :password_resets
 
+  resources :polls
+
   resources :users do
     member do
       get :following, :followers
