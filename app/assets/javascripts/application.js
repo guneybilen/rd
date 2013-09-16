@@ -69,11 +69,17 @@ $( document ).ready(function() {
     // hide it first
     $(".loader").hide();
 
-    // document keyword must be there otherwise ajaxStart does not work
-    // when an ajax request starts, show spinner
-
     $(".batin").show();
 
+    $(document).delegate('.post-form-submit-button', 'click', function(e){
+        $(this).hide();
+        $('.post-loader-span').replaceWith('<img src="assets/loader.gif" class="post-loader" >');
+//        e.preventDefault(); // just to check the CSS without submitting the form.
+//        when used replaceWith button click even stops bubbling up the event so the
+//        form does not submit
+//        $(this).replaceWith('<img src="assets/loader.gif" class="post-loader" >');
+//        $('form.new_post').submit(); //submit does not fire here
+    });
 ///////////////////////////////////////////////////////////////////////////////
 // ajaxStart() ve ajaxStop() is replaced with the delegate() method below
     $(document).delegate('.batin', 'click', function(){
@@ -82,16 +88,18 @@ $( document ).ready(function() {
     });
 
 ///////////////////////////////////////////////////////////////////////////////
-// ajaxStart() ve ajaxStop() creates problem in the project.
+//// ajaxStart() ve ajaxStop() creates problem in the project.
+//// document keyword must be there otherwise ajaxStart does not work
+//// when an ajax request starts, show spinner
 //    $(document).ajaxStart(function(){
 //
 //        $(".batin").hide();
 //        $(".loader").show();
-//  //          $(".span_comment").replaceWith($(".loader").show());
+////          $(".span_comment").replaceWith($(".loader").show());
 //
 //    });
-    // document keyword must be there otherwise ajaxStop does not work
-    // when an ajax request complets, hide spinner
+//// document keyword must be there otherwise ajaxStop does not work
+//// when an ajax request complets, hide spinner
 //    $(document).ajaxStop(function(){
 //
 //        $(".batin").show();

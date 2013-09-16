@@ -3,5 +3,6 @@
 <div class='field'>
   <%= f.text_area :content, placeholder: "Compose a new post..." %>
 </div>
-<%= f.submit 'Post', class: 'btn btn-large btn-primary' %>
+<%= f.submit 'Post', class: 'btn btn-large btn-primary post-form-submit-button' %>
 <% end %>
+<span class='post-loader-span'></span>
