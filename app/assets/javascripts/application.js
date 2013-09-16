@@ -23,14 +23,14 @@ function updatePosts () {
     var after = "0";
   }
   $.getScript("/polls.js?after=" + after);
-  setTimeout("updatePosts()", 10000);
+  setTimeout("updatePosts()", 50000);
 }
 
 
 $( document ).ready(function() {
 
     if ($(".posts").length > 0) {
-        setTimeout(updatePosts, 10000);
+        setTimeout(updatePosts, 50000);
     }
 
     $(document).delegate(".comment_form_reply_link", "click", function(e){
@@ -75,7 +75,7 @@ $( document ).ready(function() {
     $(".batin").show();
 
 ///////////////////////////////////////////////////////////////////////////////
-// ajaxStart() ve ajaxStop() is placed with the method below
+// ajaxStart() ve ajaxStop() is replaced with the delegate() method below
     $(document).delegate('.batin', 'click', function(){
         $(".batin").hide();
         $(".loader").show();
