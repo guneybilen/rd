@@ -46,7 +46,9 @@ module Rd
     config.active_record.default_timezone = :local
 
 
-
+    #config.assets.initialize_on_precompile = false is from below link
+    #https://github.com/rweng/jquery-datatables-rails/issues/10
+    config.assets.initialize_on_precompile = false
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
