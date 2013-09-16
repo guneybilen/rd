@@ -13,7 +13,9 @@
       </aside>
       <div class="span8">
         <h3 class = 'posts'>Post Feed</h3>
+        <% unless @feed_items.first.nil? %>
         <span class="polls" data-time="<%= @feed_items.first.created_at.to_i %>"></span>
+        <% end %>
         <%= render 'shared/feed', hash: @hash %>
       </div>
     </div>

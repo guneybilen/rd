@@ -27,8 +27,10 @@
       <div class="span8">
         <span class="pre-posts">
         <ol class="posts">
+          <% unless @feed_items.first.nil? %>
         <span class="polls" data-time="<%= @feed_items.first.created_at.to_i %>"></span>
-        <h3>Post Feed</h3>
+          <% end %>
+          <h3>Post Feed</h3>
           <% i = 0 %>
           <% @feed_items.each do |feed_item| %>
               <li id="<%= feed_item.id %>">
@@ -51,7 +53,7 @@
               </li>
           <% i += 1 %>
           <% end %>
-        </ol>
+          </ol>
         </span>
          <%= will_paginate @feed_items %>
       </div>

@@ -23,14 +23,14 @@ function updatePosts () {
     var after = "0";
   }
   $.getScript("/polls.js?after=" + after);
-  setTimeout(updatePosts, 1000);
+  setTimeout("updatePosts()", 10000);
 }
 
 
 $( document ).ready(function() {
 
     if ($(".posts").length > 0) {
-        setTimeout(updatePosts, 1000);
+        setTimeout(updatePosts, 10000);
     }
 
     $(document).delegate(".comment_form_reply_link", "click", function(e){

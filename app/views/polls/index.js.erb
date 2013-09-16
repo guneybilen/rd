@@ -1,8 +1,15 @@
 <% unless @poll_posts.empty? %>
-
-  $('div.poll').html("<a href='' id='poll' style='background: yellow; color: blue; text-align: center'>New Posts added</a>");
+<% if @result != true %>
+  $('div.poll')
+          .html("New Posts added." + "<a href='' id='poll'> Click Here!</a>")
+          .addClass("alert alert-info")
+          .click(function(){
+              $('.pre-posts')
+                     .prepend('<%= j render( partial: "shared/feed", locals: {:@feed_items => @poll_posts, no_will_paginate: true}) %>');
+          });
+<% else %>
 
 $('.pre-posts')
        .prepend('<%= j render( partial: "shared/feed", locals: {:@feed_items => @poll_posts, no_will_paginate: true}) %>');
 <% end %>
-
+<% end %>
