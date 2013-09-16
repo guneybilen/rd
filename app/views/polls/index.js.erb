@@ -2,7 +2,7 @@
   <% if @result != true %>
     $('h3.post-feed').hide();
     $('div.poll')
-          .html("New Posts added." + "<a href='' id='poll'> Click Here!</a>")
+          .html("<%= @poll_posts_count %> new <%= "post".pluralize(@poll_posts_count) %> added." + "<a href='' id='poll'> Click Here!</a>")
           .addClass("alert alert-info")
           .click(function(){
               $('.pre-posts')
