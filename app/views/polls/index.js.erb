@@ -1,15 +1,13 @@
 <% unless @poll_posts.empty? %>
-<% if @result != true %>
-  $('div.poll')
+  <% if @result != true %>
+    $('h3.post-feed').hide();
+    $('div.poll')
           .html("New Posts added." + "<a href='' id='poll'> Click Here!</a>")
           .addClass("alert alert-info")
           .click(function(){
               $('.pre-posts')
-                     .prepend('<%= j render( partial: "shared/feed", locals: {:@feed_items => @poll_posts, no_will_paginate: true}) %>');
+                     .prepend('<%= j render( partial: "polls/polls", locals: { :@poll_posts => @poll_posts }) %>');
           });
-<% else %>
-
-$('.pre-posts')
-       .prepend('<%= j render( partial: "shared/feed", locals: {:@feed_items => @poll_posts, no_will_paginate: true}) %>');
-<% end %>
+//  $('h3.post-feed').show();
+  <% end %>
 <% end %>

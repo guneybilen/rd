@@ -7,8 +7,8 @@
     <% i += 1 %>
     <% end %>
   </ol>
-    <% if !no_will_paginate %>
+    <!-- if !no_will_paginate - this breaks endless scrolling -->
       <%= will_paginate @feed_items  %>
-    <% end %>
+    <!-- end -->
 <% end %>
 

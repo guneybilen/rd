@@ -1,0 +1,11 @@
+
+<% if @poll_posts.any? %>
+  <ol class = "posts">
+    <% i = 0 %>
+    <% @poll_posts.each do |poll_post| %>
+    <%= render 'shared/feed_item', feed_item: poll_post, i: i, hash: @hash %>
+    <% i += 1 %>
+    <% end %>
+  </ol>
+<% end %>
+

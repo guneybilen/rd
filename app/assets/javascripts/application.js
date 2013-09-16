@@ -71,20 +71,31 @@ $( document ).ready(function() {
 
     // document keyword must be there otherwise ajaxStart does not work
     // when an ajax request starts, show spinner
-    $(document).ajaxStart(function(){
 
+    $(".batin").show();
+
+///////////////////////////////////////////////////////////////////////////////
+// ajaxStart() ve ajaxStop() is placed with the method below
+    $(document).delegate('.batin', 'click', function(){
         $(".batin").hide();
         $(".loader").show();
-//        $(".span_comment").replaceWith($(".loader").show());
-
     });
 
+///////////////////////////////////////////////////////////////////////////////
+// ajaxStart() ve ajaxStop() creates problem in the project.
+//    $(document).ajaxStart(function(){
+//
+//        $(".batin").hide();
+//        $(".loader").show();
+//  //          $(".span_comment").replaceWith($(".loader").show());
+//
+//    });
     // document keyword must be there otherwise ajaxStop does not work
     // when an ajax request complets, hide spinner
-    $(document).ajaxStop(function(){
-
-        $(".batin").show();
-    });
+//    $(document).ajaxStop(function(){
+//
+//        $(".batin").show();
+//    });
 
      $('#search_posts_form_text_field').tokenInput("/posts/posts_search_autocomplete",
         {
@@ -104,11 +115,13 @@ $( document ).ready(function() {
         }
     );
 
+    $("#token-input-search_posts_form_text_field").val("Search Posts...");
+
 
     $("#token-input-search_posts_form_text_field").focus(function () {
 
        $(this).css("width", "300px");
-
+       $(this).val("");
     });
 
     $("#token-input-search_posts_form_text_field").keyup(function () {
@@ -120,6 +133,7 @@ $( document ).ready(function() {
     $("#token-input-search_posts_form_text_field").blur(function () {
 
        $(this).css("width", "300px");
+       $(this).val("Search Posts...");
 
     });
 
@@ -142,10 +156,12 @@ $( document ).ready(function() {
     );
 
 
+    $("#token-input-search_users_form_text_field").val("Search Users...");
+
     $("#token-input-search_users_form_text_field").focus(function () {
 
        $(this).css("width", "300px");
-
+       $(this).val("");
     });
 
     $("#token-input-search_users_form_text_field").keyup(function () {
@@ -157,6 +173,7 @@ $( document ).ready(function() {
     $("#token-input-search_users_form_text_field").blur(function () {
 
        $(this).css("width", "300px");
+       $(this).val("Search Users...");
 
     });
 
