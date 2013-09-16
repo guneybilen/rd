@@ -1,4 +1,5 @@
-
+<!-- After a while check if instead of this file shared/feed partial can be used
+     without any side effects. -->
 <% if @poll_posts.any? %>
   <ol class = "posts">
     <% i = 0 %>
@@ -7,5 +8,6 @@
     <% i += 1 %>
     <% end %>
   </ol>
+     <%= will_paginate @poll_posts  %>
 <% end %>
 
