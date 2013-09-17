@@ -57,12 +57,14 @@ class PostsController < ApplicationController
       # o hatayi verirken url sunu gosteriyor: http://localhost:3000/posts?page=2
       # @feed_items = current_user.feed.paginate(page: params[:page])
 
-      render 'static_pages/home'
+      redirect_to root_path
+      #render 'static_pages/home'
     end
   end
 
   def destroy
     @post.destroy
+    flash[:success] = "Post deleted!"
     redirect_back_or root_path
   end
 

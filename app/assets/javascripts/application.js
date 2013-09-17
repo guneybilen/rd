@@ -73,16 +73,20 @@ $( document ).ready(function() {
 
 
     $(document).delegate('.post-form-submit-button', 'click', function(e){
-        $(this).hide();
-//        alert('hey');
-        $('.post-loader-span').replaceWith('<img src="assets/loader.gif" class="post-loader" />');
-//       alert('hay');
-//        e.preventDefault(); // just to check the CSS without submitting the form.
-//        when used replaceWith button click even stops bubbling up the event so the
-//        form does not submit
-//        $(this).replaceWith('<img src="assets/loader.gif" class="post-loader" >');
-//        $('form.new_post').submit(); //submit does not fire here
+
+          if($('.post-text-area').val() == ""){
+            $('div.flash').text("Please compose a new post...").addClass('alert')
+              .delay(5000).fadeOut('slow');
+              return false;
+          } else{
+           $("form#new_post").slideUp('slow');
+          }
     });
+
+    if($('div.alert').length ){
+      $('div.alert').delay(5000).fadeOut('slow');
+    }
+
 ///////////////////////////////////////////////////////////////////////////////
 // ajaxStart() ve ajaxStop() is replaced with the delegate() method below
     $(document).delegate('.batin', 'click', function(){
