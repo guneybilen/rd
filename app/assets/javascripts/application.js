@@ -71,10 +71,12 @@ $( document ).ready(function() {
 
     $(".batin").show();
 
+
     $(document).delegate('.post-form-submit-button', 'click', function(e){
-//        $(this).hide();
-//        alert('gney');
-        $('.post-loader-span').replaceWith('<img src="assets/loader.gif" class="post-loader" >');
+        $(this).hide();
+//        alert('hey');
+        $('.post-loader-span').replaceWith('<img src="assets/loader.gif" class="post-loader" />');
+//       alert('hay');
 //        e.preventDefault(); // just to check the CSS without submitting the form.
 //        when used replaceWith button click even stops bubbling up the event so the
 //        form does not submit
