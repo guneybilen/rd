@@ -378,12 +378,21 @@ form#search_posts_form, form#search_users_form{
   margin-left: 20px;
 }
 
+/* below form inputs are css'ed seperately b/c if I just did
+   input[type=text], input[type=password] tokenInput textbox changes
+   size as well.
+*/
 .edit_user input[type=text], input[type=password] {
     height: 50px !important;
     font-size: 16px;
 }
 
 .new_session_form input[type=text], input[type=password] {
+    height: 50px !important;
+    font-size: 16px;
+}
+
+.new_user input[type=text], input[type=password] {
     height: 50px !important;
     font-size: 16px;
 }
