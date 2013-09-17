@@ -383,6 +383,11 @@ form#search_posts_form, form#search_users_form{
     font-size: 16px;
 }
 
+.new_session_form input[type=text], input[type=password] {
+    height: 50px !important;
+    font-size: 16px;
+}
+
 /*
 CSS for ajax loading spinner
 {
