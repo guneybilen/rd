@@ -397,6 +397,18 @@ form#search_posts_form, form#search_users_form{
     font-size: 16px;
 }
 
+/*input[type="text"], input[type="password"], input[type="email"], input[type="search"], input:focus {*/
+
+.form-search input[type="text"] {
+    outline: none !important;  /*in no case here and the nexts the !important is required*/
+    border:none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+}
+
 /*
 CSS for ajax loading spinner
 {
