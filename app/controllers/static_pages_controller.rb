@@ -6,10 +6,10 @@ class StaticPagesController < ApplicationController
       @feed_items = current_user.feed.paginate(page: params[:page])
       @hash = Hash.new
       @feed_items.each do |feed_item|
-      feed_item.comments.each do |comment|
+        feed_item.comments.each do |comment|
           @hash["#{feed_item}"] = feed_item.comments.to_a
+        end
       end
-    end
     else
       redirect_to signin_path
     end
