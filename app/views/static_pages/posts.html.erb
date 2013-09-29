@@ -29,7 +29,7 @@
         <span class="pre-posts">
         <ol class="posts">
           <% unless @feed_items.first.nil? %>
-        <span class="polls" data-time="<%= @feed_items.first.created_at.to_i %>"></span>
+            <span class="polls" data-time="<%= @feed_items.first.created_at.to_i %>" data-whereabouts="posts"></span>
           <% end %>
           <h3 class="post-feed">Post Feed</h3>
           <% i = 0 %>
@@ -43,10 +43,13 @@
             Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
         </span>
              <% if !current_user.nil? && (current_user.admin? || current_user?(feed_item.user)) %>
-                <%= link_to 'delete', feed_item, method: :delete,
-                                                 confirm: "You sure?",
-                                                 title: feed_item.content %>
-              <% end %>
+               <!-- link_to 'delete', feed_item, method: :delete,
+                                      confirm: "You sure?",
+                                      title: feed_item.content -->
+
+               <%= link_to 'delete', {controller: :posts, action: :destroy, id: feed_item.id, here_page: @here_page},
+                                     {confirm: "You su?", title: feed_item.content} %>
+             <% end %>
 
               <div class="comments">
                 <%= render 'shared/comments',  hash: @hash, i: i, feed_item: feed_item %>

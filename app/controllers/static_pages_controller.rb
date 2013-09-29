@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
 
   def home
     if signed_in?
+      @here_page = "home"
       @post = current_user.posts.build if signed_in?
       @feed_items = current_user.feed.paginate(page: params[:page])
       @hash = Hash.new
@@ -25,6 +26,7 @@ class StaticPagesController < ApplicationController
   end
 
   def posts
+    @here_page = "posts"
     @post = current_user.posts.build if signed_in?
     @feed_items = Post.paginate(page: params[:page])
     @hash = Hash.new

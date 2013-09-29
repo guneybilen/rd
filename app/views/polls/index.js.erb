@@ -1,3 +1,4 @@
+<% unless @poll_posts.nil? %>
 <% unless @poll_posts.empty? %>
   <% if @result != true %>
     $('h3.post-feed').hide();
@@ -9,4 +10,5 @@
                      .prepend('<%= j render( partial: "polls/polls", locals: { :@poll_posts => @poll_posts }) %>');
           });
   <% end %>
+<% end %>
 <% end %>

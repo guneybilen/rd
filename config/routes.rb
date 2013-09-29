@@ -40,6 +40,8 @@ Rd::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
+  match '/posts/:id/:here_page', to: "posts#destroy"
+
   resources :posts, only: [:create, :destroy, :show]
 
   resources :relationships, only: [:create, :destroy]

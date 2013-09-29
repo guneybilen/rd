@@ -19,10 +19,12 @@ function updatePosts () {
 //  var article_id = $("#article").attr("data-id");
   if ($(".polls").length > 0) {
     var after = $(".polls").attr("data-time");
-  } else {
+    var whereabouts = $(".polls").attr("data-whereabouts");
+  }
+  else {
     var after = "0";
   }
-  $.getScript("/polls.js?after=" + after);
+  $.getScript("/polls.js?after=" + after + "&whereabouts=" + whereabouts);
   setTimeout("updatePosts()", 50000);
 }
 

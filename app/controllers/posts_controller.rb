@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user, only: :destroy
+  before_filter :set_page
+
 
   def posts_search_autocomplete
      keyword = params[:q]
@@ -63,16 +65,41 @@ class PostsController < ApplicationController
   end
 
   def destroy
+
+    #render :text => params[:here_page]
+    @post = Post.find_by_id(params[:id])
     @post.destroy
     flash[:success] = "Post deleted!"
-    redirect_back_or root_path
+
+    if params[:here_page] == "home"
+      redirect_to home_path
+    end
+
+    if params[:here_page] == "posts"
+      redirect_to root_path
+    end
+
+    #if request.path =~ /\/posts\//
+    #  redirect_back_or root_path
+    #end
+    #if request.path =~ /\/home/
+    #  redirect_to home_path
+    #end
+
   end
 
   private
 
   def correct_user
-    @post = current_user.posts.find_by_id(params[:id])
-    redirect_to root_path if @post.nil?
+    if !current_user.admin?
+      @post = current_user.posts.find_by_id(params[:id])
+      redirect_to root_path if @post.nil?
+    else
+      @post = Post.find_by_id(params[:id])
+    end
   end
 
+  def set_page
+    @here_page = "posts"
+  end
 end
