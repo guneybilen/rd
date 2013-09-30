@@ -74,7 +74,12 @@ Rd::Application.configure do
   # config.force_ssl = true
 
 
-
+   config.middleware.use ExceptionNotification::Rack,
+     :email => {
+       :email_prefix => "[ERROR] ",
+       :sender_address => %{"Exception Notifier" <admin@isgetir.com>},
+       :exception_recipients => %w{guneybilen@yahoo.com}
+     }
 
 
 
